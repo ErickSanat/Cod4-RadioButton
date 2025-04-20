@@ -1,16 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.cod4radiobutton.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox alignment="CENTER" prefHeight="390.0" prefWidth="572.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cod4radiobutton.RadioButtonController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <children>
+      <Label prefHeight="69.0" prefWidth="386.0" text="Cinema TizaYork" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label text="Venta de boletos" textAlignment="CENTER" textFill="#5d9ee4">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label text="Elige un descuento:">
+         <VBox.margin>
+            <Insets right="400.0" />
+         </VBox.margin>
+      </Label>
+     <fx:define>
+       <ToggleGroup fx:id="Descuento" />
+     </fx:define>
+      <RadioButton fx:id="TerceraEdad" mnemonicParsing="false" text="Tercera edad">
+         <VBox.margin>
+            <Insets right="415.0" />
+         </VBox.margin>
+         <toggleGroup>
+            <ToggleGroup fx:id="Descuento" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="Miercoles" mnemonicParsing="false" text="Miercoles" toggleGroup="$Descuento">
+         <VBox.margin>
+            <Insets right="437.0" />
+         </VBox.margin></RadioButton>
+      <RadioButton mnemonicParsing="false" text="Ninguno" toggleGroup="$Descuento">
+         <VBox.margin>
+            <Insets right="440.0" />
+         </VBox.margin></RadioButton>
+      <Label fx:id="LabelPrecio" text="Precio: $150">
+         <VBox.margin>
+            <Insets right="440.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#calcular" text="Calcular">
+               <HBox.margin>
+                  <Insets left="400.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#salir" text="Salir">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
 </VBox>
